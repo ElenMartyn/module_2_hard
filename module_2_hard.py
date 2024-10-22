@@ -13,12 +13,12 @@ def generate_password(n):
 
     return list_
 
-human= input("Введите число от 3 до 20: ")  # Запрос ввода у пользователя
+human= input("Введите число от 3 до 20: ")  # Запрос ввода у человека
 
 if human.isdigit():
     n = int(human)  # Вводим число
     if 3 <= n <= 20:  # Проверяем, что число в допустимом диапазоне
-        result = generate_password(n)  # Генерируем пароль
-        print("Сгенерированный пароль:", result)  # Выводим результат
+        result = generate_password(n)  #  пароль
+        print("Сгенерированный пароль:", result) 
     else:
         print("Пожалуйста, введите корректное целое число.")
