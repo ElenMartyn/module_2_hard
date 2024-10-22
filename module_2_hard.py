@@ -1,20 +1,24 @@
-import random
-
 def generate_password(n):
+    # проверяем чтобы число входи в диапозон
     if n < 3 or n > 20:
-        return []
+        return "Введите число от 3 до 20"
 
-    list_ = []  # список
+    list_ = ''
 
-    for i in range(1, n):
-        for j in range(i + 1, n + 1):
-            pair_sum = i + j
-            if n % pair_sum == 0:
-                list_.append(str(i) + str(j))
+    for a in range(1, 21):  # Пары чисел подбираются от 1 до 20 для текущих чисел.
+        for b in range(a + 1, 21):
+            pair_sum = a + b  # Сумма пары
+            if n % pair_sum == 0:  # Кратность суммы
+                list_ += str(a) + str(b)
 
-    result = ''.join(list_)
-    return result
+    return list_
 
-random_number = random.randint(3, 20)
-password = generate_password(random_number)
-print(f"Число на первой каменной вставке: {random_number} - Пароль: {password}")
+human= input("Введите число от 3 до 20: ")  # Запрос ввода у пользователя
+
+if human.isdigit():
+    n = int(human)  # Вводим число
+    if 3 <= n <= 20:  # Проверяем, что число в допустимом диапазоне
+        result = generate_password(n)  # Генерируем пароль
+        print("Сгенерированный пароль:", result)  # Выводим результат
+    else:
+        print("Пожалуйста, введите корректное целое число.")
